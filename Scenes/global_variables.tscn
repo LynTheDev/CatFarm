@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfl55nvs8etgl"]
+
+[ext_resource type="Script" path="res://Scripts/Globals.gd" id="1_7646s"]
+
+[node name="global_variables" type="Node"]
+script = ExtResource("1_7646s")
+coins = 100
