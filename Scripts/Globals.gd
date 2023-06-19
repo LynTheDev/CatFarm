@@ -3,21 +3,21 @@ extends Node
 @export 
 var coins := 0
 
-@export 
-var farm_level := 1
-
-@export 
-var player_level := 1
-
-@export
-var player_exp := 0
-
 var game_state: STATES = STATES.Idle
 enum STATES {
 	Planting,
 	Idle,
 	Paused
 }
+
+var USER_DATA = {
+	Level = 1,
+	ToNext = 10,
+	Exp = 0,
+
+	FarmLevel = 1
+}
+
 
 var PLANTS = {
 	Carrot = "Carrot",

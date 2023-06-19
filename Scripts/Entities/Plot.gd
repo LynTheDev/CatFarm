@@ -44,9 +44,7 @@ func _process(_delta):
 
 
 func _on_input_event(_viewport, event, _shape_idx):
-	print("Click With no mous")
 	if event is InputEventMouseButton and event.pressed:
-		print("Click With mous")
 		if can_harvest:
 			$Progress.size.x = 0
 
