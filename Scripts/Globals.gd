@@ -3,6 +3,19 @@ extends Node
 @export 
 var coins := 0
 
+@export 
+var ExpPerLevel: float = 0.3
+
+@export
+var LevelIncreaseSpeed: float = 2
+
+var rpc_states: RPCSTATES = RPCSTATES.InGame
+enum RPCSTATES {
+	InGame,
+	MainMenu,
+	Paused
+}
+
 var game_state: STATES = STATES.Idle
 enum STATES {
 	Planting,

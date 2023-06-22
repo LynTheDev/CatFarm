@@ -2,7 +2,7 @@ extends Control
 
 var chance := 100
 
-func _input(_event):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		if $ColonThree.visible:
 			$ColonThree.visible = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csrdff4cnw3sv"
-path="res://.godot/imported/CurrencyPanel.png-2a4f976ad16798d34e009fd42a546302.ctex"
+uid="uid://burko4loyir0p"
+path="res://.godot/imported/ExitButton.png-dd536cbcf153fcd63cb8379c5e3a2748.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CurrencyPanel.png"
-dest_files=["res://.godot/imported/CurrencyPanel.png-2a4f976ad16798d34e009fd42a546302.ctex"]
+source_file="res://Assets/Buttons/ExitButton.png"
+dest_files=["res://.godot/imported/ExitButton.png-dd536cbcf153fcd63cb8379c5e3a2748.ctex"]
 
 [params]
 

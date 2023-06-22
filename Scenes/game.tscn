@@ -1,22 +1,22 @@
-[gd_scene load_steps=33 format=3 uid="uid://b57fg5hv0pf6l"]
+[gd_scene load_steps=34 format=3 uid="uid://b57fg5hv0pf6l"]
 
 [ext_resource type="PackedScene" uid="uid://dbfk4okiqc2ww" path="res://Scenes/Entities/Veggies/Plot.tscn" id="1_4xgra"]
 [ext_resource type="Script" path="res://Scripts/SpotHandler.gd" id="1_81gjc"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_yqwxu"]
 [ext_resource type="Texture2D" uid="uid://bsbdrl6yvrx6m" path="res://Assets/FreeAssets/Free Simple Pastel Backgrounds/PNG/Mountains/Mountains01.png" id="2_g2uo2"]
 [ext_resource type="Script" path="res://Scripts/Entities/Camera.gd" id="2_u8eun"]
-[ext_resource type="Script" path="res://Scenes/PauseHandler.gd" id="3_7k4pa"]
 [ext_resource type="Texture2D" uid="uid://u5r662uutltu" path="res://Assets/FreeAssets/Free Simple Pastel Backgrounds/PNG/Mountains/Mountains02.png" id="3_dd4a7"]
+[ext_resource type="Script" path="res://Scripts/PauseHandler.gd" id="3_ht4dp"]
 [ext_resource type="FontFile" uid="uid://cp0owd3je6i4e" path="res://Assets/Fonts/Silkscreen-Regular.ttf" id="3_sslql"]
 [ext_resource type="Texture2D" uid="uid://dufnphmug41c6" path="res://Assets/Buttons/Handles/PlantTab.png" id="4_m8xa7"]
 [ext_resource type="Texture2D" uid="uid://cdpfepfq48jnd" path="res://Assets/Exports/Ground-WIP.png" id="4_tgg5h"]
 [ext_resource type="Texture2D" uid="uid://c7mb1kxs8gf3p" path="res://Assets/Buttons/Handles/Test.png" id="5_hn6q0"]
 [ext_resource type="Texture2D" uid="uid://dgqoj8w04t2wg" path="res://Assets/Buttons/Handles/StarTab.png" id="5_inamb"]
 [ext_resource type="Texture2D" uid="uid://d0xr0evm4gb6v" path="res://Assets/Buttons/PauseEmpty.png" id="5_km86k"]
-[ext_resource type="Texture2D" uid="uid://burko4loyir0p" path="res://Assets/ExitButton.png" id="6_lj5pc"]
 [ext_resource type="Texture2D" uid="uid://d01cbs5onaanl" path="res://Assets/Buttons/Carrot/CarrotButton.png" id="7_0dox7"]
 [ext_resource type="Texture2D" uid="uid://ge0lf6wou2sp" path="res://Assets/Buttons/Carrot/CarrotButtonPressed.png" id="8_y2p6s"]
 [ext_resource type="Texture2D" uid="uid://iye6ceow6lqs" path="res://Assets/Props/CatCoin.png" id="9_8yk43"]
+[ext_resource type="Texture2D" uid="uid://burko4loyir0p" path="res://Assets/Buttons/ExitButton.png" id="9_aqhfu"]
 [ext_resource type="Texture2D" uid="uid://6ruw1k7q08us" path="res://Assets/Buttons/Wheat/WheatButton.png" id="10_fijjw"]
 [ext_resource type="Texture2D" uid="uid://gdhj7ar6ku40" path="res://Assets/Buttons/Wheat/WheatButtonpressed.png" id="11_icf7m"]
 [ext_resource type="Texture2D" uid="uid://dkif7ogiouk34" path="res://Assets/Props/SaleSign.png" id="11_mogmo"]
@@ -40,6 +40,9 @@ font_size = 23
 [sub_resource type="LabelSettings" id="LabelSettings_rjbew"]
 font = ExtResource("3_sslql")
 font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_4bqj3"]
+font = ExtResource("3_sslql")
 
 [sub_resource type="Animation" id="Animation_wrjc8"]
 resource_name = "CloseMenu"
@@ -142,7 +145,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_7k4pa")
+script = ExtResource("3_ht4dp")
 
 [node name="ColorRect" type="ColorRect" parent="Player/View/PauseView/PauseMenu"]
 layout_mode = 1
@@ -282,7 +285,6 @@ label_settings = SubResource("LabelSettings_5pcnk")
 [node name="UIView" type="CanvasLayer" parent="Player/View"]
 
 [node name="UI" type="Control" parent="Player/View/UIView"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -301,17 +303,27 @@ text = "000000000
 "
 label_settings = SubResource("LabelSettings_rjbew")
 
+[node name="Exp" type="Label" parent="Player/View/UIView/UI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 37.0
+offset_right = 52.0
+offset_bottom = 61.0
+text = "1: 0/10
+"
+label_settings = SubResource("LabelSettings_4bqj3")
+
 [node name="PlantHandle" type="TextureButton" parent="Player/View/UIView/UI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -81.0001
-offset_top = 4.0
-offset_right = -49.0001
-offset_bottom = 36.0
+offset_left = -81.0
+offset_top = 5.0
+offset_right = -49.0
+offset_bottom = 37.0
 grow_horizontal = 0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2.53401, 2.5)
 texture_normal = ExtResource("4_m8xa7")
 
 [node name="StarHandle" type="TextureButton" parent="Player/View/UIView/UI"]
@@ -324,7 +336,7 @@ offset_top = 92.0
 offset_right = -1.0
 offset_bottom = 132.0
 grow_horizontal = 0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2.57422, 2.53237)
 texture_normal = ExtResource("5_inamb")
 
 [node name="MenuPlayer" type="AnimationPlayer" parent="Player/View/UIView/UI"]
@@ -364,7 +376,7 @@ offset_right = -26.0002
 offset_bottom = 27.2061
 grow_horizontal = 0
 scale = Vector2(2, 2)
-texture_normal = ExtResource("6_lj5pc")
+texture_normal = ExtResource("9_aqhfu")
 
 [node name="CarrotButton" type="TextureButton" parent="Player/View/UIView/UI/MenuWrapper"]
 layout_mode = 2
@@ -448,7 +460,6 @@ layer_0/tile_data = PackedInt32Array(2031747, 131072, 0, 2097283, 131072, 1, 203
 [node name="CanvasLayer" type="CanvasLayer" parent="World"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="World/CanvasLayer"]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="World/CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(0, 0)
@@ -479,10 +490,10 @@ texture = ExtResource("11_mogmo")
 script = ExtResource("1_81gjc")
 
 [node name="Plot" parent="FarmSpots" instance=ExtResource("1_4xgra")]
-position = Vector2(1000, 472)
+position = Vector2(1000, 473)
 
 [node name="Plot2" parent="FarmSpots" instance=ExtResource("1_4xgra")]
-position = Vector2(1100, 472)
+position = Vector2(1100, 473)
 
 [node name="Plot3" parent="FarmSpots" instance=ExtResource("1_4xgra")]
 position = Vector2(1200, 472)

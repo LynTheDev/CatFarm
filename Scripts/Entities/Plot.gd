@@ -10,6 +10,14 @@ var occupied_by = Glob.PLANTS.Empty
 var can_harvest := false
 
 
+func exp_checker():
+	if Glob.USER_DATA.Exp >= Glob.USER_DATA.ToNext:
+		Glob.USER_DATA.Level += 1
+
+		var next_exp := pow(Glob.USER_DATA.Level / Glob.ExpPerLevel, Glob.LevelIncreaseSpeed)
+		Glob.USER_DATA.ToNext = floor(next_exp)
+
+
 func plant_handler(plant: String):
 	$PlantSprite.offset.x = Glob.PLANT_DATA[plant]["OffsetX"]
 	$PlantSprite.offset.y = Glob.PLANT_DATA[plant]["OffsetY"]
@@ -17,6 +25,11 @@ func plant_handler(plant: String):
 	Glob.coins -= Glob.PLANT_DATA[plant]["Cost"]
 
 	$GrowTimer.wait_time = Glob.PLANT_DATA[plant]["GrowthTime"]
+
+
+func plant_yield_handler(plant: String):
+	Glob.coins += Glob.PLANT_DATA[plant]["Yield"]
+	Glob.USER_DATA.Exp += Glob.PLANT_DATA[plant]["ExpYield"]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,12 +65,9 @@ func _on_input_event(_viewport, event, _shape_idx):
 			$ProgressBorders.visible = false
 			$PlantSprite.visible = false
 
-			if occupied_by == Glob.PLANTS.Carrot:
-				Glob.coins += Glob.PLANT_DATA["Carrot"]["Yield"]
+			plant_yield_handler(occupied_by)
 			
-			if occupied_by == Glob.PLANTS.Wheat:
-				Glob.coins += Glob.PLANT_DATA["Wheat"]["Yield"]
-			
+			exp_checker()
 			$TimeLeft.text = ""
 
 			is_occupied = false
@@ -84,9 +94,9 @@ func _on_input_event(_viewport, event, _shape_idx):
 				occupied_by = Glob.PLANTS.Wheat
 
 				$PlantSprite.texture = wheat
-				plant_handler("Wheat");
+				plant_handler("Wheat")
 				
-				$GrowTimer.start();
+				$GrowTimer.start()
 
 
 
@@ -94,4 +104,4 @@ func _on_grow_timer_timeout():
 	can_harvest = true
 	$TimeLeft.text = "Done"
 
-	$GrowTimer.stop();
+	$GrowTimer.stop()
